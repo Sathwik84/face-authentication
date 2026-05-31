@@ -1,0 +1,48 @@
+/* Custom Cursor */
+body {
+    cursor: none;
+    /* Hide default cursor */
+}
+
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--secondary-color);
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--secondary-color);
+    opacity: 0.5;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+/* Hover States */
+body.hovering .cursor-outline {
+    background-color: rgba(6, 182, 212, 0.1);
+    border-color: transparent;
+}
+
+/* Mobile: Reset to default cursor */
+@media (max-width: 768px) {
+    body {
+        cursor: auto;
+    }
+
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+}
